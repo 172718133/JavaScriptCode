@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="btn">
+        <button style="color: red;">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+    </div>
+    <div class="con">
+        <div>111</div>
+        <div style="display: none;">222</div>
+        <div style="display: none;">333</div>
+        <div style="display: none;">444</div>
+        <div style="display: none;">555</div>
+        <div style="display: none;">666</div>
+        <div style="display: none;">777</div>
+        <div style="display: none;">888</div>
+    </div>
+    <script>
+        $(function() {
+            $('.btn button').click(function() {
+                $(this).css('color', 'red');
+                $(this).siblings().css('color', '')
+                var index = $(this).index();
+                $('.con div').eq(index).show().siblings().hide();
+            })
+        });
+    </script>
+</body>
+
+</html>

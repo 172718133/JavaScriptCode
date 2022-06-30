@@ -1,0 +1,157 @@
+@charset "UTF-8";
+html {
+    font-size: 50px
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    font-family: 'Hiragino Sans GB', Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -font-smoothing: antialiased;
+    color: #323232;
+    max-width: 750px;
+    background: #F4F5F9;
+}
+
+body * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+dl,
+dt,
+dd,
+p,
+input {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+img {
+    border: 0;
+}
+
+.imghover {
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+
+.imghover:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+input,
+select,
+button,
+textarea {
+    outline: none;
+}
+
+input[type="submit"],
+input[type="text"],
+button {
+    -webkit-appearance: none;
+}
+
+.imghover {
+    -webkit-transition: all 0.5s ease 0s;
+    -moz-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+}
+
+.imghover:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+li {
+    list-style: none;
+}
+
+i,
+em {
+    font-style: normal;
+}
+
+b {
+    font-weight: 400
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+
+/* 设置为100是方便用rem单位计算 */
+
+@media screen and (max-width: 319px) {
+    html {
+        /*font-size: 85.33333px;*/
+        font-size: 90px;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 359px) {
+    html {
+        font-size: 90px;
+    }
+}
+
+@media screen and (min-width: 360px) and (max-width: 374px) {
+    html {
+        font-size: 96px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 383px) {
+    html {
+        font-size: 100px;
+    }
+}
+
+@media screen and (min-width: 384px) and (max-width: 399px) {
+    html {
+        font-size: 102.4px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 413px) {
+    html {
+        font-size: 106.66667px;
+    }
+}
+
+@media screen and (min-width: 414px) {
+    html {
+        font-size: 110.4px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    html {
+        font-size: 120px;
+    }
+}

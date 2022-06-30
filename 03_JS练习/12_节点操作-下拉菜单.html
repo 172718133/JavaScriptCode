@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../h52.css">
+    <title>Document</title>
+    <style>
+        .box {
+            display: flex;
+            width: 500px;
+            margin: 0 auto;
+        }
+        
+        .box li a {
+            display: block;
+            width: 100px;
+            height: 40px;
+            color: black;
+            line-height: 40px;
+            text-align: center;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .box li a:hover {
+            background-color: #ccc;
+        }
+        
+        .box li {
+            margin: 0 10px;
+        }
+        
+        .box li ul {
+            display: none;
+        }
+        
+        .box li ul li {
+            display: block;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="box">
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>关注的人</li>
+                <li>粉丝</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>关注的人</li>
+                <li>粉丝</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>关注的人</li>
+                <li>粉丝</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>关注的人</li>
+                <li>粉丝</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        var box = document.querySelector(".box");
+        var lis = box.children;
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].onmouseover = function() {
+                this.children[1].style.display = "block"
+            }
+            lis[i].onmouseout = function() {
+                this.children[1].style.display = "none"
+            }
+        }
+    </script>
+</body>
+
+</html>

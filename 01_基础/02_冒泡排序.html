@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var msg = [4, 3, 5, 2, 1]
+            // 五个数总共要比较四次
+        for (var i = 0; i < msg.length - 1; i++) {
+            for (var j = 0; j < msg.length - i - 1; j++) {
+                if (msg[j] > msg[j + 1]) {
+                    var temp = msg[j];
+                    msg[j] = msg[j + 1];
+                    msg[j + 1] = temp;
+                }
+            }
+        }
+        console.log(msg)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

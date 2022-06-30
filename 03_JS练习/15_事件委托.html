@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            z-index: 9999999;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>点我点我点我</li>
+        <li>点我点我点我</li>
+        <li>点我点我点我</li>
+        <li>点我点我点我</li>
+        <li>点我点我点我</li>
+    </ul>
+    <div>家客户打卡尽快哈更健康</div>
+    <img src="./image/05/right.png" alt="">
+    <input type="text">
+    <script>
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function(e) {
+            // e.target.style.backgroundColor = 'pink'
+            alert('弹出提示')
+        })
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        })
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        })
+        document.addEventListener('mousemove', function(e) {
+            var x = e.pageX;
+            var y = e.pageY;
+            var img = document.querySelector('img');
+            img.style.left = x - 25 + 'px';
+            img.style.top = y - 25 + 'px';
+        });
+        document.addEventListener('keyup', function(e) {
+            var input = document.querySelector('input');
+            if (e.keyCode == 83) {
+                input.focus();
+            }
+        });
+    </script>
+</body>
+
+</html>

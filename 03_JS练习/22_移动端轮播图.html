@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>666</title>
+    <link rel="stylesheet" href="../02_js/h52.css">
+    <style>
+        body {
+            min-width: 320px;
+            max-width: 750px;
+        }
+        
+        .swiper {
+            position: relative;
+            width: 101%;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+        
+        .swiper ul {
+            overflow: hidden;
+            width: 500%;
+            margin-left: -100%;
+        }
+        
+        .swiper ul li {
+            width: 20%;
+            float: left;
+            list-style: none;
+        }
+        
+        .swiper ul li img {
+            width: 100%;
+            vertical-align: middle;
+        }
+        
+        .circle {
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            bottom: 10px;
+            right: 30px;
+        }
+        
+        .circle li {
+            float: left;
+            width: 5px;
+            height: 5px;
+            background-color: #fff;
+            border-radius: 2px;
+            margin: 0 5px;
+            padding: 0;
+        }
+        
+        .current {
+            width: 20px!important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper">
+        <ul>
+            <li>
+                <a href="javascript:;"><img src="./image/22/b3.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="./image/22/b1.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="./image/22/b2.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="./image/22/b3.jpg" alt=""></a>
+            </li>
+            <li>
+                <a href="javascript:;"><img src="./image/22/b1.jpg" alt=""></a>
+            </li>
+        </ul>
+        <ol class="circle">
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    <script>
+        var swiper = document.querySelector('.swiper');
+        var ul = swiper.children[0];
+        var w = swiper.offsetWidth;
+        var ol = swiper.children[1];
+        var index = 0;
+        var timer = setInterval(function() {
+            index++;
+            var translate = -index * w;
+            console.log(translate);
+            ul.style.transition = 'all .3s'
+            ul.style.transform = 'translateX(' + translate + 'px)'
+        }, 2000);
+        ul.addEventListener('transitionend', function() {
+            if (index >= 3) {
+                index = 0;
+                ul.style.transition = 'none'
+                var translate = -index * w - 1;
+                ul.style.transform = 'translateX(' + translate + 'px)'
+            } else if (index < 0) {
+                index = 2;
+                ul.style.transition = 'none'
+                var translate = -index * w - 1;
+                ul.style.transform = 'translateX(' + translate + 'px)'
+            }
+            ol.querySelector('li.current').classList.remove('current');
+            ol.children[index].classList.add('current');
+        });
+    </script>
+</body>
+
+</html>

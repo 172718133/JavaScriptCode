@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none !important;
+            margin: 0;
+        }
+        
+        .count_down {
+            width: 270px;
+            height: 390px;
+            background-color: #f6472d;
+            color: #fff;
+            text-align: center;
+            /* box-sizing: border-box; */
+            /* padding-top: 70px; */
+            overflow: hidden;
+        }
+        
+        .top {
+            margin-top: 70px;
+        }
+        
+        .title {
+            font-size: 40px;
+        }
+        
+        .eng {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #ffa589;
+        }
+        
+        .sd {
+            font-size: 40px;
+        }
+        
+        .end {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #ffe9d9;
+        }
+        
+        .bottom {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .hour,
+        .minute,
+        .second {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 56px;
+            height: 56px;
+            font-size: 24px;
+            font-weight: 600;
+            background-color: #2f342e;
+        }
+        
+        .hour,
+        .minute {
+            margin-right: 10px;
+        }
+        
+        .send {
+            margin-top: 50px;
+        }
+        
+        .send input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w">
+        <div class="count_down">
+            <div class="top">
+                <div class="title">京东秒杀</div>
+                <div class="eng">FLASH DEALS</div>
+                <div class="sd">ㄆ</div>
+                <div class="end">本场距离结束还剩</div>
+            </div>
+            <div class="bottom">
+                <div class="hour">1</div>
+                <div class="minute">2</div>
+                <div class="second">3</div>
+            </div>
+        </div>
+        <div class="send">
+            手机号码：<input type="number"><button>发送</button>
+        </div>
+    </div>
+    <script>
+        var hour = document.querySelector('.hour'); //获取小时的盒子
+        var minute = document.querySelector('.minute'); //获取分钟的盒子
+        var second = document.querySelector('.second'); //获取秒数的盒子
+        var inputTime = +new Date('2023-5-12 18:00:00'); //获取用户输入的时间 ‘+’号是为了获取时间戳 转换为number类型
+        countDown(); //一进入页面就先执行一次函数 防止1s后才变化时间的情况
+        setInterval(countDown, 1000); //定时器 每隔1s执行一次倒计时函数
+
+        function countDown() {
+            var nowTime = +new Date(); //获取现在的时间
+            // var inputTime = new Date(time);
+            var times = (inputTime - nowTime) / 1000; //获取输入时间和当前时间的差值
+            // var d = parseInt(times / 60 / 60 / 24);
+            // d = d < 10 ? '0' + d : d;
+            var h = parseInt(times / 60 / 60 % 24); //时间差值转换为小时整数
+            h = h < 10 ? '0' + h : h; //判断小于10则加上‘0’
+            hour.innerHTML = h; //将转换后的小时数赋值给小时的盒子
+            var m = parseInt(times / 60 % 60);
+            m = m < 10 ? '0' + m : m;
+            minute.innerHTML = m;
+            var s = parseInt(times % 60);
+            s = s < 10 ? '0' + s : s;
+            second.innerHTML = s;
+            // return d + '天' + h + '时' + m + '分' + s + '秒'
+        }
+        // console.log(countDown('2022-5-12 18:00:00'));
+        var btn = document.querySelector('button');
+        var numtime = 3;
+        btn.addEventListener('click', function() {
+            btn.disabled = true;
+            btn.innerHTML = numtime + '秒后再次发送';
+            var timer = setInterval(function() {
+                if (numtime == 0) {
+                    clearInterval(timer);
+                    btn.disabled = false;
+                    btn.innerHTML = '发送';
+                    numtime = 3
+                } else {
+                    btn.innerHTML = numtime - 1 + '秒后再次发送';
+                    numtime--;
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+
+</html>

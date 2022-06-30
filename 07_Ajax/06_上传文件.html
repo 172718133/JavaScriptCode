@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../05_jQuery/dist/css/bootstrap.min.css" />
+    <script src="./js/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" id="file" style="margin:20px 10px;">
+    <button id="btnUpload" style="margin:20px 10px;">上传文件</button>
+
+    <div class="progress" style="margin: 20px 10px;width: 400px;text-align: center;">
+        <div class="progress-bar progress-bar-striped active" style="width: 0%" id="percent">0%</div>
+    </div>
+    <img src="" alt="" id="img" width="200">
+    <script>
+        var btnUpload = document.querySelector('#btnUpload');
+        btnUpload.addEventListener('click', function() {
+            var files = document.querySelector('#file').files;
+            if (files.length <= 0) {
+                return alert('请先选择图片')
+            }
+            var fd = new FormData();
+            fd.append('avatar', files[0]);
+            var xhr = new XMLHttpRequest();
+            xhr.upload.onprogress = function(e) {
+                if (e.lengthComputable) {
+                    var progress = Math.ceil((e.loaded / e.total) * 100)
+                    console.log(progress);
+                    $('.progress-bar').attr('style', 'width: ' + progress + '%').html(progress + '%');
+                }
+            };
+            xhr.open('POST', 'http://www.liulongbin.top:3006/api/upload/avatar');
+            xhr.send(fd);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(JSON.parse(xhr.responseText));
+                    var res = JSON.parse(xhr.responseText);
+                    var img = document.querySelector('#img');
+                    if (res.status === 200) {
+                        img.setAttribute('src', 'http://www.liulongbin.top:3006' + res.url);
+                    } else {
+                        alert(res.message)
+                    }
+                }
+            };
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .small {
+            position: relative;
+            width: 400px;
+            border: 1px solid #ccc;
+            margin: 10px 0 0 10px;
+        }
+        
+        .small img {
+            width: 100%;
+            vertical-align: middle;
+        }
+        
+        .glass {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+            opacity: .5;
+        }
+        
+        .big {
+            display: none;
+            overflow: hidden;
+            position: absolute;
+            left: 420px;
+            top: 10px;
+            width: 500px;
+            height: 500px;
+            border: 1px solid #ccc;
+        }
+        
+        .big img {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="small">
+        <img src="./image/19/small.png" alt="">
+        <div class="glass"></div>
+    </div>
+    <div class="big">
+        <img src="./image/19/big.png" alt="" class="bigImg">
+    </div>
+    <script>
+        var small = document.querySelector('.small');
+        var glass = document.querySelector('.glass');
+        var big = document.querySelector('.big');
+        var bigImg = document.querySelector('.bigImg');
+        small.addEventListener('mousemove', function(e) {
+            glass.style.display = 'block';
+            big.style.display = 'block';
+            // 定义鼠标和小盒子的距离
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+            // 放大镜盒子和小盒子的距离
+            glassX = (x - glass.offsetWidth / 2);
+            glassY = (y - glass.offsetWidth / 2);
+            // 定义放大镜盒子最大移动距离（放大镜盒子和小盒子的最大距离） 
+            var glassMax = small.offsetWidth - glass.offsetWidth;
+            // 定义大盒子最大移动距离（图片和大盒子的宽度差） 
+            var bigMax = bigImg.offsetWidth - big.offsetWidth;
+            var glassMax = small.offsetWidth - glass.offsetWidth;
+            // 判断放大镜盒子和小盒子的距离，小于0则固定为0，大于最大距离则等于最大
+            if (glassX <= 0) {
+                glassX = 0
+            } else if (glassX >= glassMax) {
+                glassX = glassMax
+            }
+            if (glassY <= 0) {
+                glassY = 0
+            } else if (glassY >= glassMax) {
+                glassY = glassMax
+            }
+            glass.style.left = glassX + 'px';
+            glass.style.top = glassY + 'px';
+            // glass移动距离 / glass最大移动距离 = bigImg移动距离 / bigImg最大移动距离
+            var bigX = glassX * bigMax / glassMax;
+            var bigY = glassY * bigMax / glassMax;
+            bigImg.style.left = -bigX + 'px';
+            bigImg.style.top = -bigY + 'px';
+        });
+        small.addEventListener('mouseout', function(e) {
+            glass.style.display = 'none';
+            big.style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>

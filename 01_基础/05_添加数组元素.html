@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function unique(arr) {
+            // 定义一个空数组（用来接入新数据）
+            var newArr = [];
+            for (var i = 0; i < arr.length; i++) {
+                // 循环旧数组  若索引为-1  表示新数组内没有这个元素
+                if (newArr.indexOf(arr[i]) === -1) {
+                    // .push将元素添加到新数组中
+                    newArr.push(arr[i])
+                }
+            }
+            // 返回新的数组
+            return newArr;
+        }
+        // 调用方法  传入数据
+        console.log(unique([1, 2, 5, 4, 1, 2, 5, 2, 1]));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

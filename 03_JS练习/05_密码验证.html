@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            display: flex;
+            /* height: 24px; */
+            align-items: center;
+            width: 500px;
+            margin: 100px auto;
+        }
+        
+        .txt img {
+            width: 20px;
+            height: 20px;
+            /* line-height: 20px; */
+        }
+        
+        .txt {
+            /* line-height: 24px; */
+            /* display: flex; */
+            align-items: center;
+            margin-left: 10px;
+            display: none;
+        }
+        
+        .hint {
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <input type="password" name="" id="input">
+        <div class="txt">
+            <img class="txt-img" src="./image/05/hint.png" alt="">
+            <div class="hint">请输入6~16位密码</div>
+        </div>
+    </div>
+    <script>
+        var input = document.getElementById('input');
+        var txt = document.querySelector('.txt');
+        var img = document.querySelector('.txt-img');
+        var hint = document.querySelector('.hint');
+        input.onfocus = function() {
+            txt.style.display = 'flex'
+        }
+        input.onblur = function() {
+            if (this.value.length >= 6 && this.value.length <= 16) {
+                img.src = './image/05/right.png'
+                hint.innerHTML = '密码格式正确'
+            } else {
+                img.src = './image/05/wrong.png'
+                hint.innerHTML = '密码格式错误'
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../02_js/jquery.js"></script>
+    <title>Document</title>
+    <style>
+        .table table {
+            width: 800px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        thead tr {
+            height: 30px;
+            background-color: skyblue;
+        }
+        
+        tbody tr {
+            height: 30px;
+        }
+        
+        tbody td {
+            color: #666;
+            border-bottom: 1px solid #ccc;
+            font-size: 12px;
+        }
+        
+        .bg {
+            background-color: lemonchiffon;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>代码</th>
+                    <th>名称</th>
+                    <th>最新净值</th>
+                    <th>累计净值</th>
+                    <th>前单位净值</th>
+                    <th>净值增长率</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>003256</td>
+                    <td>农银金穗3个月定期开放债券</td>
+                    <td>1.852</td>
+                    <td>1.546</td>
+                    <td>1.855</td>
+                    <td>+0.054%</td>
+                </tr>
+                <tr>
+                    <td>003256</td>
+                    <td>农银金穗3个月定期开放债券</td>
+                    <td>1.852</td>
+                    <td>1.546</td>
+                    <td>1.855</td>
+                    <td>+0.054%</td>
+                </tr>
+                <tr>
+                    <td>003256</td>
+                    <td>农银金穗3个月定期开放债券</td>
+                    <td>1.852</td>
+                    <td>1.546</td>
+                    <td>1.855</td>
+                    <td>+0.054%</td>
+                </tr>
+                <tr>
+                    <td>003256</td>
+                    <td>农银金穗3个月定期开放债券</td>
+                    <td>1.852</td>
+                    <td>1.546</td>
+                    <td>1.855</td>
+                    <td>+0.054%</td>
+                </tr>
+                <tr>
+                    <td>003256</td>
+                    <td>农银金穗3个月定期开放债券</td>
+                    <td>1.852</td>
+                    <td>1.546</td>
+                    <td>1.855</td>
+                    <td>+0.054%</td>
+                </tr>
+                <tr>
+                    <td>003256</td>
+                    <td>农银金穗3个月定期开放债券</td>
+                    <td>1.852</td>
+                    <td>1.546</td>
+                    <td>1.855</td>
+                    <td>+0.054%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        // var trs = document.querySelector('tbody').querySelectorAll('tr');
+        // for (var i = 0; i < trs.length; i++) {
+        //     // 鼠标移入
+        //     trs[i].onmouseover = function() {
+        //             this.className = 'bg'
+        //         }
+        //         // 鼠标移出
+        //     trs[i].onmouseout = function() {
+        //         this.className = ''
+        //     }
+        // }
+        $('tbody tr').on('mouseover', function() {
+            $(this).addClass('bg').siblings().removeClass('bg');
+        });
+    </script>
+</body>
+
+</html>

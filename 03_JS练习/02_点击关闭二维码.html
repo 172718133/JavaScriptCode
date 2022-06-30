@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .close {
+            font-size: 18px;
+            width: 148px;
+            height: 176px;
+            margin: 100px auto;
+            padding-top: 15px;
+            border: 1px solid #ccc;
+            text-align: center;
+            position: relative;
+        }
+        
+        .close img {
+            width: 120px;
+            margin-top: 10px;
+        }
+        
+        .close i {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            top: -1px;
+            left: -28px;
+            line-height: 24px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background-color: #f4f4f4;
+            /*鼠标点击的样式*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="close">
+        京东二维码
+        <img src="./image/02/jd.webp" alt="">
+        <i class="close-btn">×</i>
+    </div>
+    <script>
+        var btn = document.querySelector('.close-btn');
+        var close = document.querySelector('.close')
+        btn.onclick = function() {
+            close.style.display = 'none'
+        }
+    </script>
+</body>
+
+</html>

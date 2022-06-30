@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .box {
+            width: 420px;
+            margin: 100px auto;
+        }
+        
+        .ul {
+            list-style: none;
+        }
+        
+        .box li {
+            float: left;
+            width: 47px;
+            height: 47px;
+            background-color: antiquewhite;
+            margin: 20px;
+            background-image: url(../03_练习/image/03/all.png);
+            background-repeat: no-repeat;
+            position: relative;
+            border: 2px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="ul">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        var lis = document.querySelectorAll('li');
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].style.backgroundPosition = '0 -' + i * 47 + 'px'
+        }
+    </script>
+</body>
+
+</html>

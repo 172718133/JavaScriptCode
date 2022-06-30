@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .tab {
+            width: 700px;
+            margin: 100px auto;
+        }
+        
+        .tab_list ul {
+            height: 40px;
+            line-height: 40px;
+            justify-content: space-between;
+            background-color: #f7f7f7;
+            display: flex;
+            list-style: none;
+            border: 1px solid #eee;
+            border-bottom: 1px solid #e4393c;
+            margin-top: -1px;
+        }
+        
+        .tab_list ul li {
+            padding: 0 30px;
+            cursor: pointer;
+        }
+        
+        .tab_list ul :nth-last-child(-n-1) {
+            margin-left: 10px;
+        }
+        
+        .active {
+            color: #fff;
+            background-color: #e4393c;
+        }
+        
+        .tab_content {
+            font-size: 14px;
+        }
+        
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="active">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_content">
+            <div class="item" style="display: block;">商品介绍内容</div>
+            <div class="item">规格与包装内容</div>
+            <div class="item">售后保障内容</div>
+            <div class="item">商品评价内容</div>
+            <div class="item">手机社区内容</div>
+        </div>
+    </div>
+    <script>
+        var lis = document.querySelector('.tab_list').querySelectorAll('li');
+        var items = document.querySelectorAll('.item')
+            // 循环所有的li
+        for (var i = 0; i < lis.length; i++) {
+            // 循环给所有的li设置索引号
+            lis[i].setAttribute('index', i)
+                // 绑定点击事件
+            lis[i].onclick = function() {
+                // 再次循环，使用排他算法，将所有li的类名置空（设置为未选中）
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = ''
+                }
+                // 将点击的这个li类名设置为选中的类
+                this.className = 'active'
+                    // 获取当前的索引号
+                var index = this.getAttribute('index')
+                console.log(index);
+                // 循环将所有内容区隐藏
+                for (var i = 0; i < items.length; i++) {
+                    items[i].style.display = 'none'
+                }
+                // 将点击的这个索引号的div显示出来
+                items[index].style.display = 'block'
+            }
+        }
+    </script>
+</body>
+
+</html>

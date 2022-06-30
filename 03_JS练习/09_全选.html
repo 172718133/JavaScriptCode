@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 500px;
+            margin: 100px auto;
+            text-align: center;
+            border: #ccc 1px solid;
+            border-collapse: collapse;
+        }
+        
+        thead tr {
+            height: 34px;
+            background-color: skyblue;
+            align-items: center;
+        }
+        
+        thead td {
+            color: #fff;
+        }
+        
+        tbody tr {
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="out">
+        <table>
+            <thead>
+                <tr>
+                    <th>全选
+                        <input type="checkbox" name="" id="all">
+                    </th>
+                    <th>商品</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody id="outtb">
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>iPhone8</td>
+                    <td>3999</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>iPhone8 Plus</td>
+                    <td>4999</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>iPhone12</td>
+                    <td>5999</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>iPhone12 Pro</td>
+                    <td>6999</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var all = document.querySelector('#all');
+        var inps = document.getElementById('outtb').querySelectorAll('input');
+        all.onclick = function() {
+                // 复选框按钮被选中，checked属性就为true
+                console.log(this.checked);
+                for (var i = 0; i < inps.length; i++) {
+                    // 给所有的复选框赋值全选按钮的状态
+                    inps[i].checked = this.checked;
+                }
+            }
+            // 循环每一个选框
+        for (var i = 0; i < inps.length; i++) {
+            // 循环后的点击事件
+            inps[i].onclick = function() {
+                var flag = true
+                    // 再次循环判断
+                for (var i = 0; i < inps.length; i++) {
+                    // 判断有一个选框没选中就返回false标志，否则仍保存true标志
+                    if (!inps[i].checked) {
+                        flag = false;
+                    }
+                }
+                // 循环全部结束后，再把标志值赋值给全选按钮
+                all.checked = flag;
+            }
+        }
+    </script>
+</body>
+
+</html>

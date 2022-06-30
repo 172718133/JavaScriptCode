@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            overflow: hidden;
+        }
+        
+        .aaa {
+            margin-bottom: 30px;
+            position: absolute;
+            left: 0;
+            top: 120px;
+        }
+        
+        .bbb {
+            position: absolute;
+            left: 100px;
+            z-index: 2;
+            /* opacity: .9; */
+        }
+    </style>
+    <script src="./animate.js"></script>
+</head>
+
+<body>
+    <div class="box">
+        <img src="./image/05/right.png" alt="" class="bbb">
+        <button class="btn500">500</button>
+        <button class="btn800">800</button>
+    </div>
+    <script>
+        var bbb = document.querySelector('.bbb');
+        var btn500 = document.querySelector('.btn500');
+        var btn800 = document.querySelector('.btn800');
+        // 定时器封装
+        // 匀速动画，原先的位置加上固定的值
+        // 缓动动画，原先的位置加上变化的值
+
+        btn500.onclick = function() {
+            animate(bbb, 500, function() {
+                alert('111')
+            });
+        }
+        btn800.onclick = function() {
+            animate(bbb, 800);
+        }
+    </script>
+</body>
+
+</html>

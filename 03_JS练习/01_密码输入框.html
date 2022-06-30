@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            margin: 100px auto;
+            border-bottom: 1px solid #ccc;
+            position: relative;
+        }
+        
+        img {
+            width: 26px;
+            position: absolute;
+            top: 2px;
+            right: 2px;
+        }
+        
+        .inp {
+            width: 370px;
+            height: 30px;
+            font-size: 18px;
+            border: none;
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <label for="">
+            <img src="./image/01/conceal.png" id="eye" alt="">
+        </label>
+        <input type="password" class="inp" id="pwd">
+    </div>
+    <script>
+        var eye = document.getElementById('eye');
+        var pwd = document.getElementById('pwd');
+        var flag = 0;
+        eye.onclick = function() {
+            console.log('aaa');
+            if (flag == 0) {
+                pwd.type = 'text';
+                eye.src = "./image/01/show.png";
+                flag = 1;
+            } else {
+                pwd.type = 'password';
+                eye.src = "./image/01/conceal.png";
+                flag = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

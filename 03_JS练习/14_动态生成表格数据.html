@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 400px;
+            /* border: 1px solid #ccc; */
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+        td,
+        th {
+            border: 1px solid #ccc;
+        }
+        
+        td {
+            height: 30px;
+        }
+        
+        table thead tr {
+            height: 40px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        var data = [{
+            name: '张三',
+            subjece: 'JavaScript',
+            score: 100
+        }, {
+            name: '李四',
+            subjece: 'JavaScript',
+            score: 86
+        }, {
+            name: '王五',
+            subjece: 'JavaScript',
+            score: 78
+        }, {
+            name: '老六',
+            subjece: 'JavaScript',
+            score: 95
+        }, ]
+        var tbody = document.querySelector('tbody');
+        for (var i = 0; i < data.length; i++) {
+            var tr = document.createElement('tr');
+            tbody.appendChild(tr)
+            for (j in data[i]) {
+                var td = document.createElement('td');
+                td.innerHTML = data[i][j]
+                tr.appendChild(td)
+            }
+            var td = document.createElement('td');
+            td.innerHTML = '<button>删除</button>'
+            tr.appendChild(td)
+        }
+        var btns = document.querySelectorAll('button')
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                tbody.removeChild(this.parentNode.parentNode)
+            }
+        }
+    </script>
+</body>
+
+</html>

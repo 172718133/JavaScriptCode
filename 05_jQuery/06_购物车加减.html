@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        .cart_item {
+            height: 50px;
+            line-height: 50px;
+            display: flex;
+            text-align: center;
+            margin: 30px;
+        }
+        
+        .name,
+        .price,
+        .all {
+            width: 300px;
+        }
+        
+        .name {
+            display: -webkit-box;
+            line-height: 1.5;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            text-align: left;
+        }
+        
+        .item {
+            /* width: 100px; */
+            height: 26px;
+            line-height: 26px;
+            display: flex;
+            text-align: center;
+            margin: auto 0;
+        }
+        
+        .num {
+            width: 50px;
+            border: 1px solid #ccc;
+            border-left: none;
+            border-right: none;
+        }
+        
+        .up,
+        .down {
+            width: 20px;
+            border: 1px solid #ccc;
+        }
+        
+        .money {
+            display: flex;
+            margin-top: 50px;
+            justify-content: right;
+        }
+        
+        .goods_num,
+        .goods_price {
+            margin-right: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cart">
+        <div class="goods">
+            <div class="cart_item">
+                <div class="name">家里有增加共同居住人的，名字+身份证号码+手机号私发给我备案到百姓网</div>
+                <div class="price">￥19.90</div>
+                <div class="item">
+                    <div class="down">-</div>
+                    <div class="num">1</div>
+                    <div class="up">+</div>
+                </div>
+                <div class="all">￥19.90</div>
+            </div>
+            <div class="cart_item">
+                <div class="name">你好，暑假家里小孩过来玩段时间，可以入住吗？需要什么材料？</div>
+                <div class="price">￥19.90</div>
+                <div class="item">
+                    <div class="down">-</div>
+                    <div class="num">1</div>
+                    <div class="up">+</div>
+                </div>
+                <div class="all">￥19.90</div>
+            </div>
+            <div class="cart_item">
+                <div class="name">我去物业处签整改单的时候有咨询过关于停车棚的事，得到的信息是停车棚已经有在规划建设了，规划局有来量过尺寸。</div>
+                <div class="price">￥19.90</div>
+                <div class="item">
+                    <div class="down">-</div>
+                    <div class="num">1</div>
+                    <div class="up">+</div>
+                </div>
+                <div class="all">￥19.90</div>
+            </div>
+            <div class="cart_item">
+                <div class="name">这些车辆是没人认领的，通知已经发出一个月了，端午节过后在没人认领就统一处理掉。</div>
+                <div class="price">￥19.90</div>
+                <div class="item">
+                    <div class="down">-</div>
+                    <div class="num">1</div>
+                    <div class="up">+</div>
+                </div>
+                <div class="all">￥19.90</div>
+            </div>
+        </div>
+        <div class="money">
+            <div class="goods_num">数量：<em>1</em></div>
+            <div class="goods_price">总计：<em>￥666</em></div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $(".up").click(function() {
+                var n = $(this).siblings(".num").text();
+                n++;
+                $(this).siblings(".num").text(n);
+                var p = $(this).parent().siblings(".price").html();
+                p = p.substr(1);
+                console.log(p);
+                // var price = toFixed(2)
+                $(this).parent().siblings(".all").html("￥" + (p * n).toFixed(2));
+                getPrice()
+            })
+            $(".down").click(function() {
+                var n = $(this).siblings(".num").text();
+                if (n == 1) {
+                    return false;
+                }
+                n--;
+                $(this).siblings(".num").text(n);
+                var p = $(this).parent().siblings(".price").html();
+                p = p.substr(1);
+                // console.log(p);
+                // var price = toFixed(2)
+                $(this).parent().siblings(".all").html("￥" + (p * n).toFixed(2));
+                getPrice()
+            })
+            getPrice();
+
+            function getPrice() {
+                var count = 0;
+                var money = 0;
+                $(".num").each(function(i, ele) {
+                    count += parseInt($(ele).text());
+                })
+                $(".goods_num em").text(count);
+                $(".all").each(function(i, ele) {
+                    money += parseFloat($(ele).text().substr(1));
+                })
+                $(".goods_price em").text("￥" + money.toFixed(2));
+            }
+        });
+    </script>
+</body>
+
+</html>

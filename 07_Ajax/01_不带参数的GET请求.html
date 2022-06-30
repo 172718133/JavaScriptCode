@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="btnGet">发起GET请求</button>
+    <button id="btnPost">发起POST请求</button>
+    <button id="btnAjax">发起Ajax请求</button>
+    <script>
+        $(function() {
+            $('#btnGet').on('click', function() {
+                $.get('http://www.liulongbin.top:3006/api/getbooks', {
+                    // id: 1
+                }, function(res) {
+                    console.log(res);
+                });
+            });
+            $('#btnPost').on('click', function() {
+                $.post('http://www.liulongbin.top:3006/api/addbook', {
+                    author: "Loong",
+                    bookname: "溜溜溜",
+                    id: 6666,
+                    publisher: "北京图书出版社",
+                }, function(res) {
+                    console.log(res);
+                });
+            });
+            $('#btnAjax').on('click', function() {
+                $.ajax({
+                    type: 'GET',
+                    data: {},
+                    url: 'http://www.liulongbin.top:3006/api/getbooks',
+                    success: function(res) {
+                        console.log(res);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

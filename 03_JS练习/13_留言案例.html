@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li {
+            position: relative;
+            width: 300px;
+            background-color: antiquewhite;
+            margin: 10px;
+            padding: 6px;
+        }
+        
+        ul li button {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(110%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <button>发布</button>
+    <ul>
+    </ul>
+    <!-- <script src="../jquery-1.12.4.min.js"></script> -->
+    <script>
+        // var text = $('textarea');
+        // var ul = $("ul");
+        // console.log(text);
+        // $("button").on("click", function() {
+        //     if (text.value == '') {
+        //         alert('请输入内容')
+        //         return false;
+        //     } else {
+        //         console.log(text.value);
+        //         var li = document.createElement("li");
+        //         ul.append(li);
+        //     }
+        // })
+    </script>
+    <script>
+        var text = document.querySelector('textarea');
+        var button = document.querySelector('button');
+        var ul = document.querySelector('ul');
+        button.onclick = function() {
+            if (text.value == '') {
+                alert('请输入内容');
+                return false;
+            } else {
+                // var btn = document.createElement('button');
+                // btn.innerHTML = '删除';
+                // li.appendChild(btn)
+                var li = document.createElement('li');
+                li.innerHTML = text.value + '<button>删除</button>';
+                ul.insertBefore(li, ul.children[0])
+                text.value = ''
+                var btns = ul.querySelector('li').querySelector('button')
+                btns.onclick = function() {
+                        // ul.removeChild(this.parentNode)
+                        alert('不能删，就要操死邱欣琰')
+                    }
+                    // li.onmouseover = function() {
+                    //     var btn = document.createElement('button');
+                    //     btn.innerHTML = '删除';
+                    //     li.appendChild(btn);
+                    //     btn.onclick = function() {
+                    //         li.removeChild(li.children[0])
+                    //     }
+                    // }
+                    // li.onmouseout = function() {
+                    //     // var li = document.querySelector('li')
+                    //     li.removeChild(li.children[0])
+                    // }
+            }
+        }
+    </script>
+</body>
+
+</html>
