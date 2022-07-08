@@ -1,0 +1,84 @@
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+header {
+    height: 84px;
+    border-bottom: 2px solid #c81623;
+}
+
+.logo {
+    padding-top: 18px;
+}
+
+.register {
+    height: 522px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+.register h3 {
+    height: 42px;
+    border-bottom: 1px solid #ccc;
+    background-color: #ececec;
+    line-height: 42px;
+    padding: 0 10px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.login {
+    float: right;
+    font-size: 14px;
+}
+
+.login a {
+    color: #c81623;
+}
+
+.reg_con {
+    width: 600px;
+    margin: 50px auto 0;
+}
+
+.reg_con ul li {
+    margin-bottom: 20px;
+}
+
+.reg_con ul li label {
+    display: inline-block;
+    width: 88px;
+    text-align: right;
+}
+
+.reg_con ul li input {
+    width: 242px;
+    height: 30px;
+    border: 1px solid #ccc;
+}
+
+
+/* .error {
+    display: inline-block;
+    display: flex;
+} */
+
+.error {
+    height: 20px;
+    line-height: 20px;
+}
+
+.error img {
+    margin-left: 10px;
+}
+
+.txt {
+    display: inline-block;
+    color: #c81623;
+}
