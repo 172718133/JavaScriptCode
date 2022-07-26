@@ -1,0 +1,97 @@
+@import "common";
+
+body {
+    min-width: 320px;
+    width: 15rem;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-family: Arial, Helvetica;
+    background: #f2f2f2;
+}
+
+@basefont: 50;
+
+.search-content {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15rem;
+    height: (88rem / @basefont);
+    background-color: #FFC001;
+
+    .cates {
+        width: (36rem / @basefont);
+        height: (60rem / @basefont);
+        background: url(/img/cates.png) no-repeat;
+        background-size: (36rem / @basefont) (60rem / @basefont);
+        margin: auto (20rem / @basefont);
+    }
+
+    .search {
+        flex: 1;
+
+        input {
+            height: (66rem / @basefont);
+            width: 100%;
+            border-radius: (33rem / @basefont);
+            font-size: (25rem / @basefont);
+            outline: none;
+            border: none;
+            color: #757575;
+            background-color: #FFF2CC;
+            padding-left: (55rem / @basefont);
+            margin: auto 0;
+        }
+    }
+
+    .login {
+        width: (36rem / @basefont);
+        height: (60rem / @basefont);
+        background: url(/img/login.png) no-repeat;
+        background-size: (36rem / @basefont) (60rem / @basefont);
+        margin: auto (20rem / @basefont);
+    }
+}
+.banner{
+    width: 15rem;
+    height: (368rem / @basefont);
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.ad{
+    display: flex;
+    a{
+        width: 100%;
+        flex: 1;
+        img{
+            width: 100%;
+            vertical-align: bottom;
+        }
+    }
+}
+nav{
+    width: 15rem;
+    a{
+        box-sizing: border-box;
+        margin: 10px 0;
+        line-height: 0.75;
+        text-align: center;
+        float: left;
+        width: (150rem / @basefont);
+        height: (142rem / @basefont);
+        img{
+            width: (84rem / @basefont);
+            height: (84rem / @basefont);
+            display: block;
+            margin: (10rem / @basefont) auto 0;
+        }
+        span{
+            font-size: (25rem / @basefont);
+            color: #333;
+        }
+    }
+}

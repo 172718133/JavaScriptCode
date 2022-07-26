@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../exercise/fa/css/all.css">
+    <link rel="stylesheet" href="/js/reset.css">
+    <script src="../js/jquery.js"></script>
+    <script>
+        function getMessage() {
+            var groupItem = document.getElementById('group');
+            $.ajax({
+                type: 'get',
+                url: 'http://api-hmugo-web.itheima.net/api/public/v1/goods/search',
+                success: function(res) {
+                    var items = '';
+                    var data = res.message.goods;
+                    for (var i = 0; i < data.length - 1; i++) {
+                        for (var j = 0; j < data.length - i - 1; j++) {
+                            if (data[j].goods_price > data[j + 1].goods_price) {
+                                var temp = data[j];
+                                data[j] = data[j + 1];
+                                data[j + 1] = temp;
+                            }
+                        }
+                    }
+                    console.log(data)
+                    for (var i = 0; i < data.length; i++) {
+                        var msg = `    <div class="outer clearfix">
+        <div class="image">
+            <img class="image" src="${data[i].goods_small_logo?data[i].goods_small_logo:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.yxke.com%2Fstyle%2Fimages%2Fnopic.jpg&refer=http%3A%2F%2Fwww.yxke.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1642316385&t=412e4049f4c810e6de0cb4af644b341b'}">
+        </div>
+        <div class="content">
+            <h1 class="title">创维${data[i].goods_id}</h1>
+            <h2 class="category">
+                <!-- 喜剧 / 动画 / 音乐 / 奇幻 -->
+                <i class="fas fa-location">${data[i].goods_price}</i>
+            </h2>
+            <!-- 热爱音乐的米格尔（安东尼·冈萨雷兹 Anthony Gonzalez 配音）不幸地出生在一个视音乐为洪水猛兽的大家庭之中，一家人只盼着米格尔快快长大，好继承家里传承了数代的制鞋产业。一年一度的亡灵节即将来临，每逢这一天，去世的亲人们的魂魄便可凭借着摆在祭坛上的照片返回现世和生者团圆。 -->
+            <p class="intro">${data[i].goods_name}</p>
+        </div>
+        <div class="star">
+            <ul class="star-item">
+                <li class="fas fa-star light"></li>
+                <li class="fas fa-star light"></li>
+                <li class="fas fa-star light"></li>
+                <li class="fas fa-star none"></li>
+            </ul>
+            <div class="shell">
+                <span class="fab fa-weibo"></span>
+            </div>
+        </div>
+    </div>`
+                        items += msg;
+                    }
+                    groupItem.innerHTML = items;
+                    // var item = document.getElementById("item");
+                    // var title = document.getElementById("title");
+                    // var img = document.getElementById("img");
+                    // var price = document.getElementById("price");
+                    // var intro = document.getElementById("intro");
+                    // var data = res.message.goods
+                    // console.log(data.length);
+                    // var items = ''
+                    // for (var i = 0; i < data.length; i++) {
+                    //     var src = `<img class='image' src="${data[i].goods_small_logo}">`
+                    //     items += src;
+                    //     // var titles = "创维" + data[i].goods_id;
+                    //     // var prices = data[i].goods_price;
+                    //     // var intros = data[i].goods_name;
+                    //     // console.log(intros)
+                    //     // img.innerHTML = src;
+                    //     // title.innerHTML = titles;
+                    //     // price.innerHTML = prices;
+                    //     // intro.innerHTML = intros;
+                    //     // items = img + title + price + intro;
+                    //     item.innerHTML = items
+                    // }
+                    // console.log(data)
+                    //     // var html = `<div class="title">${data.cat_name}</div>`
+                    //     // var src = `<img src="${data.goods_small_logo}">`
+                    //     // img.innerHTML = src;
+                    //     // title.innerHTML = "创维";
+                    //     // price.innerHTML = data.goods_price;
+                    //     // intro.innerHTML = data.goods_name;
+                }
+            })
+        }
+    </script>
+    <style>
+        .clearfix::after， .clearfix::before {
+            content: '';
+            display: table;
+            clear: both;
+        }
+        
+        .group {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .outer {
+            width: 240px;
+            margin: 30px 20px;
+            box-shadow: 0 0 6px rgba(0, 0, 0, .3);
+            border-radius: 4px;
+            /* float: left; */
+        }
+        
+        .image {
+            width: 100%;
+            vertical-align: bottom;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        
+        .content {
+            padding: 0 18px;
+            /* font-size: 20px; */
+            color: #acaaaa;
+        }
+        
+        .title {
+            color: #717171;
+            font-size: 18px;
+            margin: 13px 0 15px 0;
+        }
+        
+        .category {
+            font-size: 14px;
+        }
+        
+        .category i {
+            margin: 0 4px;
+        }
+        
+        .intro {
+            text-align: justify;
+            margin: 16px 0;
+            line-height: 18px;
+        }
+        
+        .star {
+            height: 30px;
+            padding: 6px 10px;
+            color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: #e9e9e9 1px solid;
+        }
+        
+        .star ul li {
+            margin-left: 2px;
+            font-size: 16px;
+        }
+        
+        .star ul .light {
+            color: #b9cb41;
+        }
+        
+        .shell {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        /* 按钮 */
+        
+        .msg-btn {
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .btn {
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="group" id="group">
+
+    </div>
+    <!-- <div class="outer" id="item">
+        <div class="image" id="img">
+            <img src="./img/10/1.jpg">
+        </div>
+        <div class="content">
+            <h1 class="title" id="title"></h1>
+            <h2 class="category">
+                喜剧 / 动画 / 音乐 / 奇幻
+                <i class="fas fa-location" id="price"></i>
+            </h2>
+            热爱音乐的米格尔（安东尼·冈萨雷兹 Anthony Gonzalez 配音）不幸地出生在一个视音乐为洪水猛兽的大家庭之中，一家人只盼着米格尔快快长大，好继承家里传承了数代的制鞋产业。一年一度的亡灵节即将来临，每逢这一天，去世的亲人们的魂魄便可凭借着摆在祭坛上的照片返回现世和生者团圆。
+            <p class="intro" id="intro"></p>
+        </div>
+        <div class="star">
+            <ul class="star-item">
+                <li class="fas fa-star light"></li>
+                <li class="fas fa-star light"></li>
+                <li class="fas fa-star light"></li>
+                <li class="fas fa-star none"></li>
+            </ul>
+            <div class="shell">
+                <span class="fab fa-weibo"></span>
+            </div>
+        </div>
+    </div> -->
+    <div class="msg-btn">
+        <button class="btn" onclick="getMessage()">点击显示内容</button>
+    </div>
+</body>
+
+</html>

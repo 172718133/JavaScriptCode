@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        #list {
+            margin: 0 auto;
+        }
+        
+        .img {
+            width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="list"></div>
+    <div class="">
+        <button class="">上一页</button>
+        <button class="">下一页</button>
+    </div>
+    <script src="./jquery.js"></script>
+    <script>
+        var list = document.getElementById("list");
+        $.get(
+            "http://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata",
+            function(res) {
+                var arr = res.message
+                var str = '';
+                console.log(arr);
+                for (var i = 0; i < arr.length; i++) {
+                    str += `<img class='img' src="${arr[i].image_src}">`
+                }
+                list.innerHTML = str;
+            }
+        )
+    </script>
+</body>
+
+</html>

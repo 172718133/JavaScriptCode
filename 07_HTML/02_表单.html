@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .info {
+            width: 300px;
+            height: 200px;
+            margin: 0 auto;
+            box-shadow: 0 0 4px #ccc;
+        }
+        
+        .info form {
+            padding: 0 10px;
+        }
+        
+        .btn {
+            float: left;
+            margin: 0 auto;
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 18px;
+            padding: 10px 0;
+            font-weight: 600;
+        }
+        
+        #name,
+        #pwd {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="info">
+        <div class="title">请输入信息</div>
+        <form action="./01_表格.html">
+            <br> 账号：
+            <input type="text" name="name" id="name" placeholder="请输入账号">
+            <br> 密码：
+            <input type="password" name="pwd" id="pwd" placeholder="请输入密码">
+            <br> 男
+            <input type="radio" value="man" name="gender"> 女
+            <input type="radio" value="woman" name="gender">
+            <br>
+            <input type="checkbox" name="test" value="1"> 梨
+            <input type="checkbox" name="test" value="2"> 火龙果
+            <input type="checkbox" name="test" value="3"> 苹果
+            <br>
+            <input class="btn" type="submit">
+        </form>
+    </div>
+</body>
+
+</html>

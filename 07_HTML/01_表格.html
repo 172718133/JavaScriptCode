@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            /* 合并边框线 */
+            border-collapse: collapse;
+        }
+        
+        table td {
+            /* 单元格的文字居中，高度为30px */
+            text-align: center;
+            height: 30px;
+        }
+        /* 设置表格的奇数行有背景色 */
+        
+        table tbody tr:nth-child(2n+1) {
+            background-color: bisque;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 设置边框为1  整个表格的宽度为页面的20%  位置在页面的中间 -->
+    <table border="1" width=20% align="center">
+        <thead>
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>张三</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>王五</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>张三</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>王五</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>张三</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>王五</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>张三</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>王五</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>张三</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>王五</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>张三</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>王五</td>
+            </tr>
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</body>
+
+</html>

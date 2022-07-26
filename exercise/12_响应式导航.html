@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 1000px;
+            height: 70px;
+            margin: 100px auto;
+        }
+        
+        ul {
+            padding: 0;
+        }
+        
+        li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box ul {
+            overflow: hidden;
+        }
+        
+        .box ul li {
+            float: left;
+            width: 100px;
+            height: 70px;
+            background-color: rgb(230, 251, 242);
+            list-style: none;
+            text-align: center;
+            line-height: 70px;
+        }
+        
+        @media screen and (max-width:750px) {
+            .box {
+                width: 100%;
+            }
+            .box ul li {
+                width: 33.33%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li>navigater</li>
+            <li>navigater</li>
+            <li>navigater</li>
+            <li>navigater</li>
+            <li>navigater</li>
+            <li>navigater</li>
+            <li>navigater</li>
+            <li>navigater</li>
+            <li>navigater</li>
+            <li>navigater</li>
+        </ul>
+    </div>
+</body>
+
+</html>

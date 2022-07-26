@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/flexible.js"></script>
+    <script src="./js/jquery.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="title">菜单</div>
+    <div class="btns">
+        <!-- <div class="menu-btn" data-id="所有">所有</div>
+        <div class="menu-btn" data-id="早餐">早餐</div>
+        <div class="menu-btn" data-id="午餐">午餐</div>
+        <div class="menu-btn" data-id="晚餐">晚餐</div>
+        <div class="menu-btn" data-id="水果">水果</div> -->
+    </div>
+    <div class="container">
+        <div class="row">
+            <article class="menu-items col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <img src="" alt="">
+                <div class="main">
+                    <header>
+                        <div class="name"></div>
+                        <div class="price"></div>
+                    </header>
+                    <div class="text"></div>
+                </div>
+            </article>
+        </div>
+    </div>
+    <script>
+        // $(function() {
+        //     $.ajax({
+        //         url: "http://127.0.0.1:5500/data.html",
+        //         type: 'get',
+        //         dataType: 'json',
+        //         success: function(res) {
+        //             console.log(res);
+        //         }
+        //     })
+        // })
+        var menu = [{
+            "id": "1",
+            "img": "./upload/1.png",
+            "title": "苹果",
+            "price": "19.9",
+            "desc": "配网成功页面返回按钮隐藏,台灯已被绑定情况先弹命名再弹已被绑定，就还是正常流程",
+            "type": "水果"
+        }, {
+            "id": "2",
+            "img": "./upload/2.png",
+            "title": "火龙果",
+            "price": "19.9",
+            "desc": "配网成功页面返回按钮隐藏,台灯已被绑定情况先弹命名再弹已被绑定，就还是正常流程",
+            "type": "水果"
+        }, {
+            "id": "3",
+            "img": "./upload/3.png",
+            "title": "烧烤",
+            "price": "19.9",
+            "desc": "配网成功页面返回按钮隐藏,台灯已被绑定情况先弹命名再弹已被绑定，就还是正常流程",
+            "type": "晚餐"
+        }, {
+            "id": "4",
+            "img": "./upload/4.png",
+            "title": "大米饭",
+            "price": "19.9",
+            "desc": "配网成功页面返回按钮隐藏,台灯已被绑定情况先弹命名再弹已被绑定，就还是正常流程",
+            "type": "午餐"
+        }, {
+            "id": "5",
+            "img": "./upload/5.png",
+            "title": "肉包",
+            "price": "19.9",
+            "desc": "配网成功页面返回按钮隐藏,台灯已被绑定情况先弹命名再弹已被绑定，就还是正常流程",
+            "type": "早餐"
+        }, {
+            "id": "6",
+            "img": "./upload/6.png",
+            "title": "炒饭",
+            "price": "19.9",
+            "desc": "配网成功页面返回按钮隐藏,台灯已被绑定情况先弹命名再弹已被绑定，就还是正常流程",
+            "type": "午餐"
+        }, {
+            "id": "7",
+            "img": "./upload/7.png",
+            "title": "牛排",
+            "price": "19.9",
+            "desc": "配网成功页面返回按钮隐藏,台灯已被绑定情况先弹命名再弹已被绑定，就还是正常流程",
+            "type": "晚餐"
+        }, {
+            "id": "8",
+            "img": "./upload/8.png",
+            "title": "榴莲",
+            "price": "19.9",
+            "desc": "配网成功页面返回按钮隐藏,台灯已被绑定情况先弹命名再弹已被绑定，就还是正常流程",
+            "type": "水果"
+        }, {
+            "id": "9",
+            "img": "./upload/9.png",
+            "title": "煎饺",
+            "price": "19.9",
+            "desc": "配网成功页面返回按钮隐藏,台灯已被绑定情况先弹命名再弹已被绑定，就还是正常流程",
+            "type": "早餐"
+        }, {
+            "id": "10",
+            "img": "./upload/10.png",
+            "title": "杨梅",
+            "price": "19.9",
+            "desc": "配网成功页面返回按钮隐藏,台灯已被绑定情况先弹命名再弹已被绑定，就还是正常流程",
+            "type": "水果"
+        }, ]
+        var rowitem = document.querySelector('.row');
+        var btn = document.querySelector('.btns');
+        window.addEventListener("DOMContentLoaded", function() {
+                menuDataItems(menu);
+                categoryBtns(menu);
+            })
+            // 代码抽离  button
+        function categoryBtns(categorybtns) {
+            const category = categorybtns.reduce(function(value, item) {
+                if (!value.includes(item.type)) {
+                    value.push(item.type)
+                }
+                return value;
+            }, ['所有']);
+            // console.log(category);
+            const categories = category.map(function(categorys) {
+                    return `<div class="menu-btn" data-id=${categorys}>${categorys}</div>`
+                }).join("")
+                // console.log(categories);
+            btn.innerHTML = categories
+                // 按钮事件
+            var btns = document.querySelectorAll('.menu-btn');
+            btns[0].className = "menu-btn active";
+            btns.forEach(function(btn) {
+                btn.addEventListener("click", function(e) {
+                    for (var i = 0; i < btns.length; i++) {
+                        btns[i].className = "menu-btn";
+                    }
+                    this.className = "menu-btn active"
+                        // console.log(e.currentTarget.dataset.id);
+                    const cates = e.currentTarget.dataset.id
+                    const menuCates = menu.filter(function(item) {
+                            if (item.type == cates) {
+                                return item;
+                            }
+                        })
+                        // console.log(menuCates);
+                    if (cates === '所有') {
+                        menuDataItems(menu)
+                    } else {
+                        menuDataItems(menuCates)
+                    }
+                })
+            })
+        }
+        // 代码抽离  内容
+        function menuDataItems(menuItem) {
+            // let menudata = menu;
+            let menudata = menuItem.map(function(item) {
+                return `<article class="menu-items col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                <img src="${item.img}" alt="">
+                                <div class="main">
+                                    <header>
+                                        <div class="name">${item.title}</div>
+                                        <div class="price">${item.price}</div>
+                                    </header>
+                                    <div class="text">${item.desc}</div>
+                                </div>
+                            </article>`;
+            }).join("");
+            // console.log(menudata);
+            rowitem.innerHTML = menudata;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+@media screen and (min-width: 750px) {
+  html {
+    font-size: 105px !important;
+  }
+}
+.title {
+  margin: 0.5333rem 0 0.2667rem 0;
+  color: #38342f;
+  font-size: 0.2667rem;
+  text-align: center;
+}
+.btns {
+  width: 40%;
+  display: flex;
+  margin: auto;
+  text-align: center;
+}
+.btns .menu-btn {
+  width: 100%;
+  list-style: none;
+  flex: 1;
+  margin: 0.24rem 0.1333rem;
+  font-size: 0.16rem;
+  border: 0.0133rem solid #666;
+  border-radius: 0.0533rem;
+  background-color: bisque;
+}
+.btns .menu-btn:hover,
+.btns .menu-btn:active,
+.btns .active {
+  background-color: #b97d7d;
+  color: #ffe3c2;
+}
+.btns .menu-btn:hover {
+  cursor: pointer;
+}
+.container {
+  margin-top: 20px;
+}
+.container .main {
+  width: 2.6667rem;
+  margin: 0 auto;
+}
+.container .main header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.2667rem 0.1333rem 0.1333rem 0.1333rem;
+  font-size: 0.1333rem;
+}
+.container .main .text {
+  text-align: justify;
+  font-size: 0.1333rem;
+}
+.container .menu-items {
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}

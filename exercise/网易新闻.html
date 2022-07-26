@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>网易新闻列表</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        .news-out {
+            width: 300px;
+            height: 357px;
+            margin-top: 30px;
+            margin-left: 30px;
+            border-top: 1px solid rgb(189, 185, 185);
+        }
+        
+        .news-title {
+            height: 40px;
+            display: inline-block;
+            border-top: 1px solid rgb(255, 0, 0);
+            line-height: 40px;
+            margin-top: -1px;
+            font-weight: bold;
+        }
+        
+        .news-img {
+            height: 150px;
+        }
+        
+        .img-title {
+            margin-top: -30px;
+            font-weight: bold;
+            color: #fff;
+            font-size: 16px;
+            margin-left: 20px;
+        }
+        
+        .news-list {
+            margin-top: 20px;
+        }
+        
+        .news-list h2 {
+            font-size: 14px;
+            margin-bottom: 17px;
+            color: #666;
+            font-weight: lighter;
+        }
+        
+        .news-list h2::before {
+            content: '¤';
+            color: #666;
+            margin-right: 6px;
+        }
+        
+        a h2:hover {
+            color: rgb(190, 16, 16);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="news-out">
+        <h2 class="news-title">体育</h2>
+        <div class="news-img">
+            <a href="#">
+                <img src="../exercise/img/02.webp" alt="体育">
+                <p class="img-title">总理接见！字母哥家人获希腊公民身份</p>
+            </a>
+        </div>
+        <div class="news-list">
+            <a href="#">
+                <h2>上周加盟NBL还是24岁的刘传兴</h2>
+            </a>
+            <a href="#">
+                <h2>TA变性参加女子搏击比赛 同行怒斥：懦夫！</h2>
+            </a>
+            <a href="#">
+                <h2>从全网顶流到“拒绝”采访，全红婵到底怎么了</h2>
+            </a>
+            <a href="#">
+                <h2>NBA肮脏秘史</h2>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东顶部导航条</title>
+    <link rel="stylesheet" href="../js/reset.css">
+    <link rel="stylesheet" href="./fa/css/all.css">
+    <link rel="stylesheet" href="../js/京东导航条.css">
+    <style>
+        /* lineheight不需设置高度 */
+        
+        .top-bar-wrap {
+            width: 100%;
+            height: 30px;
+            background-color: #E3E4E5;
+            border-bottom: 1px solid #ddd;
+            line-height: 30px;
+        }
+        /* 设置模块居中 */
+        
+        .top-bar {
+            width: 990px;
+            margin: 0 auto;
+        }
+        /* 设置导航条中间部分的字体格式 */
+        
+        .top-bar a,
+        .top-bar span,
+        .top-bar i {
+            color: #999;
+            font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+        }
+        /* 设置跳转链接，鼠标放置显示字体红色 */
+        
+        .top-bar a:hover,
+        .top-bar .heightlight {
+            color: #f10215;
+        }
+        /* 位置信息靠左，左浮动 */
+        
+        .location {
+            float: left;
+        }
+        
+        .current-city {
+            padding: 0 10px;
+            position: relative;
+            border: 1px solid transparent;
+            z-index: 9999;
+        }
+        
+        .location:hover .current-city {
+            background-color: #fff;
+            border: 1px solid rgb(204, 204, 204);
+            border-bottom: none;
+        }
+        /* 设置将鼠标移入location时，他的后代省份列表显示 */
+        
+        .location:hover .city-list {
+            display: block;
+        }
+        /* 设置省份列表框 */
+        
+        .city-list {
+            /* 设置一开始不显示 */
+            display: none;
+            width: 320px;
+            height: 436px;
+            background-color: #fff;
+            border: 1px solid rgb(204, 204, 204);
+            /* 设置绝对定位，不设置偏移量不占位置 */
+            position: absolute;
+            top: 30px;
+            z-index: 999;
+            /* 设置阴影 水平偏移量、垂直偏移量、阴影宽度、颜色*/
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
+        }
+        
+        .city {
+            width: 100%;
+        }
+        
+        .city-item {
+            margin-top: 10px;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .city a {
+            float: left;
+            padding: 8px 0;
+            width: 20%;
+            text-align: center;
+        }
+        
+        .city a:hover {
+            background-color: #f1f1f1;
+        }
+        /* 导航条列表靠右，右浮动 */
+        
+        .shortcut {
+            float: right;
+        }
+        /* 列表内容左浮动，从左往右排列 */
+        
+        .shortcut li {
+            float: left;
+        }
+        
+        .shortcut li.line {
+            background-color: #ccc;
+            width: 1px;
+            height: 10px;
+            margin: 10px 10px;
+        }
+        /* 解决高度塌陷 */
+        
+        .clearfix::after,
+        .clearfix::before {
+            content: '';
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar-wrap">
+        <div class="top-bar clearfix">
+            <div class="location">
+                <div class="current-city">
+                    <i class="iconfont icon-weizhi" style="color: red;"></i>
+                    <a href="javascript:;">北京</a>
+                </div>
+                <div class="city-list">
+                    <div class="city">
+                        <div class="city-item">
+                            <a href="javascript:;">北京</a>
+                            <a href="javascript:;">上海</a>
+                            <a href="javascript:;">天津</a>
+                            <a href="javascript:;">重庆</a>
+                            <a href="javascript:;">河北</a>
+                            <a href="javascript:;">山西</a>
+                            <a href="javascript:;">河南</a>
+                            <a href="javascript:;">辽宁</a>
+                            <a href="javascript:;">吉林</a>
+                            <a href="javascript:;">黑龙江</a>
+                            <a href="javascript:;">内蒙古</a>
+                            <a href="javascript:;">江苏</a>
+                            <a href="javascript:;">山东</a>
+                            <a href="javascript:;">安徽</a>
+                            <a href="javascript:;">浙江</a>
+                            <a href="javascript:;">福建</a>
+                            <a href="javascript:;">湖北</a>
+                            <a href="javascript:;">湖南</a>
+                            <a href="javascript:;">广东</a>
+                            <a href="javascript:;">广西</a>
+                            <a href="javascript:;">江西</a>
+                            <a href="javascript:;">四川</a>
+                            <a href="javascript:;">海南</a>
+                            <a href="javascript:;">贵州</a>
+                            <a href="javascript:;">云南</a>
+                            <a href="javascript:;">西藏</a>
+                            <a href="javascript:;">陕西</a>
+                            <a href="javascript:;">甘肃</a>
+                            <a href="javascript:;">青海</a>
+                            <a href="javascript:;">宁夏</a>
+                            <a href="javascript:;">新疆</a>
+                            <a href="javascript:;">港澳</a>
+                            <a href="javascript:;">台湾</a>
+                            <a href="javascript:;">钓鱼岛</a>
+                            <a href="javascript:;">海外</a>
+                        </div>
+                    </div>
+                    <div class="version">
+                    </div>
+                    <div class="eng">
+                    </div>
+                </div>
+            </div>
+            <ul class="shortcut clearfix">
+                <li>
+                    <a href="javascript:;">你好，请登录</a>
+                    <a href="javascript:;" class="heightlight">免费注册</a>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">我的订单</a>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">我的京东</a>
+                    <i class="iconfont icon-xiangxia"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">京东会员</a>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;" class="heightlight">企业采购</a>
+                    <i class="iconfont icon-xiangxia"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <span>客户服务</span>
+                    <i class="iconfont icon-xiangxia"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <span>网站导航</span>
+                    <i class="iconfont icon-xiangxia"></i>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <span>手机京东</span>
+                </li>
+                <li class="line"></li>
+                <li>
+                    <a href="javascript:;">网站无障碍</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
